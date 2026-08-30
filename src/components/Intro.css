@@ -67,7 +67,7 @@
   flex: 0 0 55%;
   max-width: 55%;
   position: relative;
-  min-height: 600px;
+  height: 600px;
 }
 
 .collage-wrapper {

@@ -12,6 +12,22 @@ const images = [
   { src: "/images/baby.jpg", width: 900, height: 1200 }
 ];
 
+const baseTitles = [
+  "Pre Wedding Elegance",
+  "Product Showcase",
+  "Maternity Glow",
+  "Birthday Moments",
+  "Engagement Joy"
+];
+
+const baseCategories = [
+  "Pre Wedding",
+  "Product",
+  "Maternity",
+  "Birthday",
+  "Engagement"
+];
+
 // Generate more photos for masonry effect
 const photos = Array.from({ length: 15 }).map((_, i) => {
   const baseImg = images[i % images.length];
@@ -21,7 +37,9 @@ const photos = Array.from({ length: 15 }).map((_, i) => {
     src: baseImg.src,
     width: baseImg.width,
     height: baseImg.height + variance,
-    key: i
+    key: i,
+    title: baseTitles[i % baseTitles.length],
+    category: baseCategories[i % baseCategories.length]
   };
 });
 
@@ -46,6 +64,17 @@ const Gallery = () => {
             return 3;
           }}
           spacing={20}
+          renderPhoto={({ photo, wrapperStyle, renderDefaultPhoto }) => (
+            <div style={{ ...wrapperStyle, position: "relative" }} className="gallery-item-wrapper">
+              {renderDefaultPhoto({ wrapped: true })}
+              <div className="gallery-item-overlay">
+                <div className="gallery-item-content">
+                  <h3 className="gallery-item-title">{photo.title}</h3>
+                  <span className="gallery-item-category">{photo.category}</span>
+                </div>
+              </div>
+            </div>
+          )}
         />
 
         <Lightbox

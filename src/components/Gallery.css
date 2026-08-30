@@ -1,0 +1,30 @@
+.gallery-section {
+  padding: var(--section-padding);
+  background-color: var(--bg-light);
+}
+
+.react-photo-album {
+  width: 100%;
+}
+
+.react-photo-album img {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.react-photo-album img:hover {
+  transform: scale(1.02);
+  filter: brightness(0.9);
+}
+
+/* Lightbox overrides for brand feeling */
+.yarl__container {
+  background-color: rgba(0, 0, 0, 0.95);
+}
+
+@media (max-width: 767px) {
+  .gallery-section {
+    padding: var(--section-padding-mobile);
+  }
+}

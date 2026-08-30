@@ -1,0 +1,117 @@
+.services-section {
+  padding: var(--section-padding);
+  background-color: var(--white);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.service-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  height: 350px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.service-img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease;
+}
+
+.service-card:hover .service-img {
+  transform: scale(1.05);
+}
+
+.service-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.service-card:hover .service-overlay {
+  opacity: 1;
+}
+
+.service-title {
+  color: var(--white);
+  font-size: 22px;
+  margin-bottom: 15px;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.service-desc {
+  color: #ddd;
+  font-size: 14px;
+  margin-bottom: 20px;
+  transform: translateY(20px);
+  transition: transform 0.3s ease 0.1s;
+}
+
+.service-link {
+  color: var(--white);
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+  border-bottom: 1px solid var(--white);
+  padding-bottom: 3px;
+  transform: translateY(20px);
+  transition: transform 0.3s ease 0.2s;
+}
+
+.service-link:hover {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.service-card:hover .service-title,
+.service-card:hover .service-desc,
+.service-card:hover .service-link {
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  .services-section {
+    padding: var(--section-padding-mobile);
+  }
+  .service-card {
+    height: 300px;
+  }
+  /* On mobile, overlays should be partially visible or visible on tap. Making them visible by default slightly. */
+  .service-overlay {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.4);
+  }
+  .service-title, .service-desc, .service-link {
+    transform: translateY(0);
+  }
+}
